@@ -67,8 +67,38 @@ public abstract class Document {
 		// TODO: Implement this method so that you can call it from the 
 	    // getNumSyllables method in BasicDocument (module 1) and 
 	    // EfficientDocument (module 2).
-	    return 0;
+		int count = 0;
+		boolean isVowel = false;
+		String wordLower = word.toLowerCase();
+		for (int i = 0; i < wordLower.length(); i++) {
+				if(findVowel(wordLower.charAt(i))){
+					// find vowel;
+					//check if last char is equal to 'e'
+					if (wordLower.charAt(i) == 'e' && wordLower.length() - 1 == i && isVowel)
+						continue;
+					//check if previous char is vowel
+					if (i > 0 && findVowel(wordLower.toCharArray()[i - 1]))
+						continue;
+					isVowel = true;
+					count++;
+				}
+		}
+		return count;
 	}
+	/**
+	 * Helper method to find vowel
+	 * @param char of word
+	 * @return true if vowel is found otherwise return false
+	 */
+	
+	private boolean findVowel (char c) {
+		char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'y' };
+		for (char v : vowels) {
+			if (c == v)
+				return true;
+		}
+		return false;
+	} 
 	
 	/** A method for testing
 	 * 

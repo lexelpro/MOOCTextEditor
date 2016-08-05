@@ -36,7 +36,8 @@ public class BasicDocument extends Document
 	{
 		//TODO: Implement this method in week 1 according to the comments above.  
 		// See the Module 1 support videos if you need help.
-	    return 0;
+		List<String> words = getTokens("[a-zA-Z]+");
+		return words.size();
 	}
 	
 	/**
@@ -56,6 +57,7 @@ public class BasicDocument extends Document
 	{
 	    //TODO: Implement this method.  See the Module 1 support videos 
         // if you need help.
+		
         return 0;
 	}
 	
