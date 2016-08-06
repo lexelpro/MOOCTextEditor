@@ -57,8 +57,8 @@ public class BasicDocument extends Document
 	{
 	    //TODO: Implement this method.  See the Module 1 support videos 
         // if you need help.
-		
-        return 0;
+		List<String> sentences = getTokens("[^\\.\\!\\?]+");
+        return sentences.size();
 	}
 	
 	/**
@@ -83,7 +83,12 @@ public class BasicDocument extends Document
 		// expression for the syllable counting.  We recommend you implement 
 		// the helper function countSyllables in Document.java using a loop, 
 		// and then call it here on each word.
-        return 0;
+		List<String> words = getTokens("[a-zA-Z]+");
+		int syllables = 0;
+		for (String word : words) {
+			syllables += countSyllables(word);
+		}
+		return syllables;
 	}
 	
 	
@@ -97,7 +102,7 @@ public class BasicDocument extends Document
 		 * in the string, respectively.  You can use these examples to help clarify 
 		 * your understanding of how to count syllables, words, and sentences.
 		 */
-		testCase(new BasicDocument("This is a test.  How many???  "
+		/*testCase(new BasicDocument("This is a test.  How many???  "
 		        + "Senteeeeeeeeeences are here... there should be 5!  Right?"),
 				16, 13, 5);
 		testCase(new BasicDocument(""), 0, 0, 0);
@@ -112,7 +117,12 @@ public class BasicDocument extends Document
 		testCase(new BasicDocument("Sentence"), 2, 1, 1);
 		testCase(new BasicDocument("Sentences?!"), 3, 1, 1);
 		testCase(new BasicDocument("Lorem ipsum dolor sit amet, qui ex choro quodsi moderatius, nam dolores explicari forensibus ad."),
-		         32, 15, 1);
+		         32, 15, 1);*/
+		testCase(new BasicDocument("You should test your code by calculating"), 10, 7, 1);
+		String s = "You should test your code by calculating.";
+		
+		Document text = new BasicDocument(s);
+		System.out.println(text.getFleschScore());
 	}
 	
 }

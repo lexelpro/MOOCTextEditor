@@ -161,7 +161,10 @@ public abstract class Document {
 	public double getFleschScore()
 	{
 	    // TODO: Implement this method in week 1
-	    return 0.0;
+		double second = (1.015 * (getNumWords() / getNumSentences()));
+		double third = (84.6 * ((double)getNumSyllables() / getNumWords()));
+		double score = 206.835 - second - third;
+	    return score;
 	}
 	
 	
